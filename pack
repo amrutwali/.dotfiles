@@ -10,3 +10,6 @@ make
 gcc
 unzip
 fzf
+atac
+age
+starship

@@ -101,6 +101,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
+# source ~/.bash_aliases
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -117,9 +118,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
+eval "$(starship init bash)"
+
+export ATAC_KEY_BINDINGS="$HOME/.config/atac/vim_key_bindings.toml"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:/opt/nvim-linux64/bin"
+. "$HOME/.cargo/env"
